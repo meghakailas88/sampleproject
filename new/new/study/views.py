@@ -1,4 +1,6 @@
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .models import NewUser
 from rest_framework import viewsets
@@ -21,6 +23,15 @@ class UserLoginApiView(ObtainAuthToken):
     """Handle creating user auth tokens"""
 
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+
+
+class UserLogoutView(APIView):
+    """delete auth token when user log out"""
+
+    def get(self, request):
+        request.user.auth_token.delete()
+        return Response({"code": 200, "message": "ok"})
+
 
 
 
