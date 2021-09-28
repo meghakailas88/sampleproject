@@ -6,3 +6,4 @@ env/
 ENV/
 .idea/
 scripts/
+/db/*.sqlite3
