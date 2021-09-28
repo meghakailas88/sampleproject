@@ -1,0 +1,8 @@
+
+# dotenv
+.env
+# virtualenv
+env/
+ENV/
+.idea/
+scripts/
